@@ -55,18 +55,26 @@ while users_input != "q":
         print(contact)
     elif users_input == "3":
       to_lookup = input("Enter contact's name to look up\n")
+      found_contact = False
       for contact in contacts:
              if to_lookup in contact.full_name():
+               print("Please wait...")
                print(contact)
-             else:
+               found_contact = True
+      if not found_contact:
+               print("Please wait...")
                print("There is not such contact in the Address Book")
     elif users_input == "4":
       to_remove = input("Enter contact's name you want to delete\n")
+      found_contact = False
       for contact in contacts:
              if to_remove in contact.full_name():
+              print("Please wait...")
               contacts.remove(contact)
               print("The contact has been deleted")
-             else:
+              found_contact = True
+      if not found_contact:
+              print("Please wait...")
               print("There is not such contact in the Address Book")
 
     elif users_input.lower() == "q":
@@ -77,5 +85,5 @@ with open("contacts.csv", "w") as f:
         f.write(f"{contact.first},{contact.last},{contact.age},{contact.phone_number}\n")
 print("Thank you for using the Address Book")
 
-our_contact = Person(first_name, last_name, age, phone_number)
-our_contact.full_name()
+
+
